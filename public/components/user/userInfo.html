@@ -1,23 +1,9 @@
-<div ng-controller="formCtrl">
-    <h2> Request Form </h2>
-    <form>
-        <input type="text" ng-model="info.address" placeholder="Address">
-        <input ng-model="info.includeOffice" type="checkbox">
-        <label>Include Office</label>
-        <select ng-model="info.levels" ng-options="office.level as office.label for office in offices"></select>
-        <select ng-model="type.types" ng-options="role.role as role.display for role in roles"></select>
-        <button type="submit" ng-click="addInfo(info)">Submit</button>
-    </form>
-
-</div>
-
-
-
-
-<div ng-repeat="office in offices">
-    {{ }}
-</div>
-<div>
-    <h1> {{}} </h1>
-</div>
-</div>
+<h2> Request Form </h2>
+<form>
+    <input type="text" ng-model="info.address" placeholder="Address">
+    <input ng-model="info.includeOffice" type="checkbox">
+    <label>Include Office</label>
+    <select ng-model="info.levels" ng-options="office.level as office.label for office in offices"></select>
+    <select ng-model="info.types" ng-options="role.role as role.display for role in roles"></select>
+    <button type="submit" ng-click="addInfo(info)">Submit</button>
+</form>
