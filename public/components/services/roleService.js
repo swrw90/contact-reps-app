@@ -1,13 +1,5 @@
 var app = angular.module("contactRepsApp");
-app.service('roleService', function () {
-
-    this.defaultRole = function () {
-        var allRoles = this.getAllRoles();
-        return allRoles[7].role
-    };
-
-    this.getAllRoles = function () {
-        return [{
+var roles = [{
                 role: "deputyHeadOfGovernment",
                 display: "Deputy Head of Government"
             },
@@ -52,5 +44,16 @@ app.service('roleService', function () {
                 display: "Special Purpose Officer"
             }
         ]
-    }
-});
+app.constant("ROLES", roles);
+
+app.service('roleService', ["ROLES", function (ROLES) {
+
+    this.defaultRole = function () {
+        var allRoles = this.getAllRoles();
+        return allRoles[7].role
+    };
+
+    this.getAllRoles = function () {
+        return ROLES;
+    };
+}]);
