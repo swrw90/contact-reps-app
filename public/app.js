@@ -1,15 +1,15 @@
 var app = angular.module("contactRepsApp", ["ngRoute"]);
 app.config(["$routeProvider", function ($routeProvider) {
     $routeProvider
-    //     .when("/", {
-    //         templateUrl: "",
-    //         controller: ""
-    //     })
+        // .when("/", {
+        //     templateUrl: "",
+        //     controller: ""
+        // })
         .when("/userInfo", {
-            templateUrl: "components/user/userInfo.html",
+            templateUrl: "components/user/reqForm.html",
             controller: "formCtrl"
         })
         .otherwise("/userInfo", {
-            redirectTo: "components/user/userInfo.html"
+            redirectTo: "components/user/reqForm.html"
         });
 }]);
