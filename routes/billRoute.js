@@ -1,6 +1,6 @@
 var express = require("express");
 var billRoutes = express.Router();
-var Bill = require("../models/bill")
+var Bill = require("../models/billSchema")
 
 billRoutes.get("/", function (req, res) {
     Bill.find(function (err, bills) {
@@ -9,8 +9,10 @@ billRoutes.get("/", function (req, res) {
 });
 
 billRoutes.post("/", function (req, res) {
-    res.send("POST /bills");
+    res.send("POST /bill");
 });
+
+
 
 billRoutes.get("/:id", function (req, res) {
     res.send("GET a single bill");
