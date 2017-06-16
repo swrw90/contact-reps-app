@@ -18,12 +18,3 @@ app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiR
     $scope.offices = officesService.getAllOffices();
 
 }]);
-
-
-
-    // fetchTodoList();
-    // $scope.boxChecked = function (item) {
-    //     httpService.updateTodo(item._id, item).then(function () {
-    //         fetchTodoList();
-    //     });
-    // };
