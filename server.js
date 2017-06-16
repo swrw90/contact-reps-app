@@ -11,7 +11,7 @@ mongoose.connect("mongodb://");
 
 
 
-app.use("/user", require("./routes/user"))
+app.use("/bill", require("./routes/bill"))
 
 app.listen(port, function () {
     console.log("Server is running on port " + port)

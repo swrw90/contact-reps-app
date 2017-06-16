@@ -5,11 +5,11 @@ app.config(["$routeProvider", function ($routeProvider) {
         //     templateUrl: "",
         //     controller: ""
         // })
-        .when("/userInfo", {
+        .when("/reqInfo", {
             templateUrl: "components/user/reqForm.html",
             controller: "formCtrl"
         })
-        .otherwise("/userInfo", {
+        .otherwise("/reqInfo", {
             redirectTo: "components/user/reqForm.html"
         });
 }]);
