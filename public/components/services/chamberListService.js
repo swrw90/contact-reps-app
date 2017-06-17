@@ -1,15 +1,15 @@
 var app = angular.module("contactRepsApp");
 var chambers = [{
                 chamber: "house",
-                display: "House of Representatives"
+                view: "House of Representatives"
             },
             {
                 chamber: "senate",
-                display: "Senate"
+                view: "Senate"
             },
             {
                 chamber: "both",
-                display: "Both (For Passed Only"
+                view: "Both (For Passed Only"
             },
         ]
 app.constant("CHAMBERS", chambers);

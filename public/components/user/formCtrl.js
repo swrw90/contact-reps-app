@@ -1,6 +1,5 @@
 var app = angular.module("contactRepsApp");
-app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiReq", "congressListService", "chamberListService", "billReqService", 
-function ($scope, roleService, officesService, repsApiReq, congressListService, chamberListService, billReqService) {
+app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiReq", "congressListService", "chamberListService", "billReqService", function ($scope, roleService, officesService, repsApiReq, congressListService, chamberListService, billReqService) {
 
     $scope.addInfo = function (info) {
         repsApiReq.getRepInfo(info).then(function (response) {
@@ -16,7 +15,9 @@ function ($scope, roleService, officesService, repsApiReq, congressListService, 
 
     };
 
-  $scope.addBill = function (bill) {
+    $scope.offices = officesService.getAllOffices();
+
+    $scope.addBill = function (bill) {
     billReqService.getBill(bill).then(function (response) {
         console.log(response.data);
         $scope.billInfo = response.data;

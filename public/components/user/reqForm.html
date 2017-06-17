@@ -6,16 +6,17 @@
     <select ng-model="info.levels" ng-options="office.level as office.label for office in offices"></select>
     <select ng-model="info.types" ng-options="role.role as role.display for role in roles"></select>
     <button type="submit" ng-click="addInfo(info)">Submit</button>
+    <button type="submit" ng-click="addBill(bill)">Submit</button>
 </form>
 
-<form>
+<!--<form>
     
     <input ng-model="bill.includeOffice" type="checkbox">
     <label>Include Office</label>
     <select ng-model="bill.levels" ng-options="office.level as office.label for office in offices"></select>
     <select ng-model="bill.types" ng-options="role.role as role.display for role in roles"></select>
     <button type="submit" ng-click="addBill(bill)">Submit</button>
-</form>
+</form>-->
 
 
 

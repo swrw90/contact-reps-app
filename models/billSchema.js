@@ -1,4 +1,4 @@
-//SCHEMAS
+//SCHEMA
 var mongoose = require("mongoose")
 var billSchema = new mongoose.Schema({
     title: String,

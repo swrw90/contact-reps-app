@@ -1,27 +1,27 @@
 var app = angular.module("contactRepsApp");
 var congress = [{
         number: "110",
-        display: "110th"
+        menu: "110th"
     },
     {
         number: "111",
-        display: "111th"
+        menu: "111th"
     },
     {
         number: "112",
-        display: "112th"
+        menu: "112th"
     },
     {
         number: "113",
-        display: "113th"
+        menu: "113th"
     },
     {
         number: "114",
-        display: "114th"
+        menu: "114th"
     },
     {
         number: "115",
-        display: "115th"
+        menu: "115th"
     },
 
 ]
