@@ -8,6 +8,8 @@ app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiR
         });
     }
 
+
+    $scope.offices = officesService.getAllOffices();
     $scope.roles = roleService.getAllRoles();
     $scope.info = {
         types: roleService.defaultRole(),
@@ -15,16 +17,29 @@ app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiR
 
     };
 
-    $scope.offices = officesService.getAllOffices();
-
     $scope.addBill = function (bill) {
-    billReqService.getBill(bill).then(function (response) {
-        console.log(response.data);
-        $scope.billInfo = response.data;
-    });
-}
-    $scope.bills = billReqService.getBill();
-    $scope.bill = {
+        billReqService.getBill(bill).then(function (response) {
+            console.log(response.data);
+            $scope.bills = response.data.results['0'].bills;
+            $scope.chamber = response.data.results['0'].chamber;
+            $scope.congressNumber = response.data.results['0'].congress;
+        });
+    }
 
+    $scope.addReadList = function (bill) {
+        billReqService.postBill(bill);
+    };
+
+    $scope.displayMyList = function () {
+            billReqService.getLocalBill().then(function (response){
+                $scope.myList = response.data;
+            });
+        }
+
+    $scope.chambers = chamberListService.getAllChambers();
+    $scope.congressNumbers = congressListService.getCongressNums();
+    $scope.bill = {
+        chamber: chamberListService.defaultChamber(),
+        number: congressListService.defaultCongressNum()
     }
 }]);

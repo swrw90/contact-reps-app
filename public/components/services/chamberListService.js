@@ -9,7 +9,7 @@ var chambers = [{
             },
             {
                 chamber: "both",
-                view: "Both (For Passed Only"
+                view: "Both (For Passed Only)"
             },
         ]
 app.constant("CHAMBERS", chambers);
@@ -18,7 +18,8 @@ app.service('chamberListService', ["CHAMBERS", function (CHAMBERS) {
 
     this.defaultChamber = function () {
         var allChambers = this.getAllChambers();
-        return allChambers[0].chamber
+        console.log(allChambers[0]);
+        return allChambers[0].view
     };
 
     this.getAllChambers = function () {

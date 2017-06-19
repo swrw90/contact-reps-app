@@ -6,17 +6,17 @@
     <select ng-model="info.levels" ng-options="office.level as office.label for office in offices"></select>
     <select ng-model="info.types" ng-options="role.role as role.display for role in roles"></select>
     <button type="submit" ng-click="addInfo(info)">Submit</button>
+</form>
+
+<form>
+
+    <input ng-model="bill.includeOffice" type="checkbox">
+    <label>Include Office</label>
+    <select ng-model="bill.chamber" ng-options="bill.chamber as chamber.view for chamber in chambers"></select>
+    <select ng-model="bill.number" ng-options="bill.number as number.menu for number in congressNumbers"></select>
     <button type="submit" ng-click="addBill(bill)">Submit</button>
 </form>
 
-<!--<form>
-    
-    <input ng-model="bill.includeOffice" type="checkbox">
-    <label>Include Office</label>
-    <select ng-model="bill.levels" ng-options="office.level as office.label for office in offices"></select>
-    <select ng-model="bill.types" ng-options="role.role as role.display for role in roles"></select>
-    <button type="submit" ng-click="addBill(bill)">Submit</button>
-</form>-->
 
 
 
@@ -33,3 +33,19 @@
     </div>
 </div>
 
+<h1>Chamber: {{chamber}} </h1>
+<h2>Congress Number: {{congressNumber}}</h2>
+<div ng-repeat="bill in bills">
+    <p>{{bill.title}} {{bill.bill_id}} {{bill.active}} </p>
+    <!--<img ng-src="{{item.imgUrl}}">-->
+    <div>
+        <h1>{{bill.results["0"].bills}} </h1>
+    </div>
+    <button ng-click="addReadList(bill)">Add To List</button>
+</div>
+
+<button ng-click="displayMyList()">My List</button>
+<div ng-repeat="list in myList">
+<h1>{{list.title}}</h1>
+    
+</div>
