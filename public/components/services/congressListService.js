@@ -29,9 +29,10 @@ app.constant("CONGRESS", congress);
 
 app.service('congressListService', ["CONGRESS", function (CONGRESS) {
 
-    this.defaultChamber = function () {
+    this.defaultCongressNum = function () {
         var congressNums = this.getCongressNums();
-        return allChambers[5].chamber
+        console.log(congress[5]);
+        return congressNums[5].menu
     };
 
     this.getCongressNums = function () {

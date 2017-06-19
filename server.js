@@ -11,10 +11,11 @@ var path = require("path");
 var request = require("request");
 
 app.use(express.static(path.join(__dirname, "public")));
-app.use("/bill", require("./routes/billRoute"));
+app.use("/bills", require("./routes/billRoute"));
 app.get("/bill-api", function (req, res) {
+    console.log("req = " + req.query + "res" + res);
     var config = {
-        url: "https://api.propublica.org/congress/v1/115/senate/members.json",
+        url: "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
         headers: {
             "X-API-Key": "vEFMOw3W8p1AmhFJA02KZ7c5HYdivG4e1WO6kptF"
         }
