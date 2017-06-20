@@ -13,20 +13,21 @@ var request = require("request");
 app.use(express.static(path.join(__dirname, "public")));
 app.use("/bills", require("./routes/billRoute"));
 app.get("/bill-api", function (req, res) {
-    console.log("req = " + req.query + "res" + res);
+    var url = "https://api.propublica.org/congress/v1/" + req.query.number + "/" + req.query.chamber + "/bills/" + req.query.type + ".json";
+    console.log(url);
     var config = {
-        url: "https://api.propublica.org/congress/v1/115/house/bills/introduced.json",
+        url: url,
         headers: {
             "X-API-Key": "vEFMOw3W8p1AmhFJA02KZ7c5HYdivG4e1WO6kptF"
         }
     }
     request(config,
         function (error, response, body) {
-            console.log(response.headers);
+            console.log(response.statusCode)
             if (error) {
                 return res.send(error);
             }
-            return res.send(body)
+            return res.send(body);
         })
 })
 

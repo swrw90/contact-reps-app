@@ -1,0 +1,74 @@
+body {
+    height: 100%;
+    width: 100%;
+    padding: 0;
+    margin: 0;
+    background-color: grey;
+}
+
+.contactReq {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    padding: 5px;
+    border: 1px solid black;
+    color: black;
+    
+}
+.reqHeader {
+    /*margin: auto;*/
+}
+
+.repsHeader {
+    margin: auto;
+    
+}
+
+#addressBox {
+    height: 30px;
+    border-radius: 5px;
+}
+
+.options {
+    height: 30px;
+}
+
+.billBtn {
+margin: 5px 300px;
+
+}
+
+.infoBtn {
+    margin: 10px;
+}
+
+.my-list {
+     margin: auto;
+    width: 30%;
+    padding: 5px;
+}
+
+#myListBtn {
+ margin-bottom: 10px;   
+}
+
+.my-content {
+    margin: auto;
+    justify-content: center;
+    text-align: center;
+    width: 40%;
+    padding: 5px;
+    border: 1px solid black;
+    color: black;
+}
+
+.billResults {
+    margin: auto;
+    width: 30%;
+
+}
+
+.results {
+ margin: auto;   
+}

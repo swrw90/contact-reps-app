@@ -1,51 +1,62 @@
-<h2> Request Form </h2>
-<form>
-    <input type="text" ng-model="info.address" placeholder="Address">
-    <input ng-model="info.includeOffice" type="checkbox">
-    <label>Include Office</label>
-    <select ng-model="info.levels" ng-options="office.level as office.label for office in offices"></select>
-    <select ng-model="info.types" ng-options="role.role as role.display for role in roles"></select>
-    <button type="submit" ng-click="addInfo(info)">Submit</button>
-</form>
-
-<form>
-
-    <input ng-model="bill.includeOffice" type="checkbox">
-    <label>Include Office</label>
-    <select ng-model="bill.chamber" ng-options="bill.chamber as chamber.view for chamber in chambers"></select>
-    <select ng-model="bill.number" ng-options="bill.number as number.menu for number in congressNumbers"></select>
-    <button type="submit" ng-click="addBill(bill)">Submit</button>
-</form>
+<div class="col-xs-12">
+    <div class="row">
+        <div class="contactReq">
+            <h2 class="reqHeader"> Request Form </h2>
+            <h4>Select from the following for the most recent bills.</h4>
+            <form>
+                <select class="options" ng-model="bill.chamber" ng-options="chamber.value as chamber.label for chamber in chambers"></select>
+                <select class="options" ng-model="bill.number" ng-options="number.value as number.label for number in congressNumbers"></select>
+                <select class="options" ng-model="bill.type" ng-options="type.value as type.label for type in billTypes"></select>
+                <button class="btn billBtn" type="submit" ng-click="addBill(bill)">Submit</button>
+            </form>
+        </div>
 
 
+    </div>
+</div>
 
+<div class="contactReq">
+    <h2 class- "repsHeader">Contact Your Representatives</h2>
+    <h4>Select from the following for your representatives contact info.</h4>
+    <form>
+        <input id="addressBox" type="text" ng-model="info.address" placeholder="Address">
 
+        <select class="options" ng-model="info.levels" ng-options="office.level as office.label for office in offices"></select>
+        <select class="options" ng-model="info.types" ng-options="role.role as role.display for role in roles"></select>
+        <input ng-model="info.includeOffice" type="checkbox">
+        <label>Include Office</label>
+        <button class="btn infoBtn" type="submit" ng-click="addInfo(info)">Submit</button>
+    </form>
+</div>
 
+<div class="results">
+    <div ng-repeat="bill in bills">
+        <h3>Bill Title: {{bill.bill_id}}</h3>
+        <h4>{{bill.title}}</h4>
+        <!--<img ng-src="{{item.imgUrl}}">-->
+        <div class="billResults">
+            <h1>{{bill.results["0"].bills}} </h1>
+        </div>
+        <button class="btn" ng-click="addReadList(bill)">Add To List</button>
+    </div>
+  
+</div>
 
-<h1> Some Response</h1>
+<div class="my-content">
+    <h2 class="">Click to view saved bills</h2>
+    <button id="myListBtn" class="btn" ng-click="displayMyList()">My List</button>
+    <div ng-repeat="list in myList">
+        <ul>
+            <li>{{list.title}}</li>
+        </ul>
+    </div>
+</div>
 
-<p>Your officials:</p>
+<!--<p>Your officials:</p>-->
 <div ng-repeat="official in repsInfo.officials">
     <h3>{{ official.name }}</h3>
     <div ng-repeat="address in official.address">
         <p>{{ address.line1 }}</p>
         <p>{{ address.city }}, {{ address.state }} {{ address.zip }}</p>
     </div>
-</div>
-
-<h1>Chamber: {{chamber}} </h1>
-<h2>Congress Number: {{congressNumber}}</h2>
-<div ng-repeat="bill in bills">
-    <p>{{bill.title}} {{bill.bill_id}} {{bill.active}} </p>
-    <!--<img ng-src="{{item.imgUrl}}">-->
-    <div>
-        <h1>{{bill.results["0"].bills}} </h1>
-    </div>
-    <button ng-click="addReadList(bill)">Add To List</button>
-</div>
-
-<button ng-click="displayMyList()">My List</button>
-<div ng-repeat="list in myList">
-<h1>{{list.title}}</h1>
-    
 </div>

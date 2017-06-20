@@ -1,5 +1,5 @@
 var app = angular.module("contactRepsApp");
-app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiReq", "congressListService", "chamberListService", "billReqService", function ($scope, roleService, officesService, repsApiReq, congressListService, chamberListService, billReqService) {
+app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiReq", "congressListService", "chamberListService", "billReqService", "billTypeService", function ($scope, roleService, officesService, repsApiReq, congressListService, chamberListService, billReqService, billTypeService) {
 
     $scope.addInfo = function (info) {
         repsApiReq.getRepInfo(info).then(function (response) {
@@ -19,10 +19,10 @@ app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiR
 
     $scope.addBill = function (bill) {
         billReqService.getBill(bill).then(function (response) {
-            console.log(response.data);
-            $scope.bills = response.data.results['0'].bills;
-            $scope.chamber = response.data.results['0'].chamber;
-            $scope.congressNumber = response.data.results['0'].congress;
+            $scope.bills = response.data.results[0].bills;
+            $scope.chamber = response.data.results[0].chamber;
+            $scope.congressNumber = response.data.results[0].congress;
+
         });
     }
 
@@ -38,8 +38,10 @@ app.controller("formCtrl", ["$scope", "roleService", "officesService", "repsApiR
 
     $scope.chambers = chamberListService.getAllChambers();
     $scope.congressNumbers = congressListService.getCongressNums();
+    $scope.billTypes = billTypeService.getBillTypes();
     $scope.bill = {
         chamber: chamberListService.defaultChamber(),
-        number: congressListService.defaultCongressNum()
+        number: congressListService.defaultCongressNum(),
+        type: billTypeService.defaultBillType()
     }
 }]);

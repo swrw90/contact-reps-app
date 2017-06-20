@@ -1,27 +1,27 @@
 var app = angular.module("contactRepsApp");
 var congress = [{
-        number: "110",
-        menu: "110th"
+        value: "110",
+        label: "110th"
     },
     {
-        number: "111",
-        menu: "111th"
+        value: "111",
+        label: "111th"
     },
     {
-        number: "112",
-        menu: "112th"
+        value: "112",
+        label: "112th"
     },
     {
-        number: "113",
-        menu: "113th"
+        value: "113",
+        label: "113th"
     },
     {
-        number: "114",
-        menu: "114th"
+        value: "114",
+        label: "114th"
     },
     {
-        number: "115",
-        menu: "115th"
+        value: "115",
+        label: "115th"
     },
 
 ]
@@ -30,9 +30,8 @@ app.constant("CONGRESS", congress);
 app.service('congressListService', ["CONGRESS", function (CONGRESS) {
 
     this.defaultCongressNum = function () {
-        var congressNums = this.getCongressNums();
-        console.log(congress[5]);
-        return congressNums[5].menu
+        var congressNums = CONGRESS;
+        return congressNums[5].value
     };
 
     this.getCongressNums = function () {

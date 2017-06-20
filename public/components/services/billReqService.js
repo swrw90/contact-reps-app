@@ -3,7 +3,12 @@ const apiString = "http://localhost:8000/bills"
 
 app.service("billReqService", ["$http", function ($http) {
     this.getBill = function (billInfo) {
-        return $http.get("/bill-api", billInfo)
+        console.log(billInfo);
+        var config = {
+            params: billInfo
+        }
+        // console.log($http.get("/bill-api?", config));
+        return $http.get("/bill-api?callback=JSON_CALLBACK", config);
     };
 
     this.getLocalBill = function () {
@@ -14,7 +19,7 @@ app.service("billReqService", ["$http", function ($http) {
         return $http.post(apiString, bill)
     };
 
-    this.updateBill = function(id, bill) {
+    this.updateBill = function (id, bill) {
         return $http.put(apiString + id, bill)
     };
 
